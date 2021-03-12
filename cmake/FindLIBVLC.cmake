@@ -50,12 +50,14 @@ FIND_PATH(LIBVLC_INCLUDE_DIR vlc/vlc.h
     #mingw
     c:/msys/local/include
     "c:/Program Files (x86)/VideoLAN/VLC/sdk/include"
+	#vs
+	"vlc-3.0.9.2/sdk/include"
   )
 FIND_PATH(LIBVLC_INCLUDE_DIR PATHS "${CMAKE_INCLUDE_PATH}/vlc" NAMES vlc.h)
 
 #Put here path to custom location
 #example: /home/user/vlc/lib etc..
-FIND_LIBRARY(LIBVLC_LIBRARY NAMES vlc libvlc
+FIND_LIBRARY(LIBVLC_LIBRARY NAMES libvlc
   HINTS "$ENV{LIBVLC_LIBRARY_PATH}"
   PATHS
     "$ENV{LIB_DIR}/lib"
@@ -67,9 +69,11 @@ FIND_LIBRARY(LIBVLC_LIBRARY NAMES vlc libvlc
     #mingw
     c:/msys/local/lib
     "c:/Program Files (x86)/VideoLAN/VLC/sdk/lib"
+	#vs
+	"vlc-3.0.9.2/sdk/lib"
   )
-FIND_LIBRARY(LIBVLC_LIBRARY NAMES vlc libvlc)
-FIND_LIBRARY(LIBVLCCORE_LIBRARY NAMES vlccore libvlccore
+FIND_LIBRARY(LIBVLC_LIBRARY NAMES libvlc)
+FIND_LIBRARY(LIBVLCCORE_LIBRARY NAMES libvlccore
   HINTS "$ENV{LIBVLC_LIBRARY_PATH}"
   PATHS
     "$ENV{LIB_DIR}/lib"
@@ -81,8 +85,10 @@ FIND_LIBRARY(LIBVLCCORE_LIBRARY NAMES vlccore libvlccore
     #mingw
     c:/msys/local/lib
     "c:/Program Files (x86)/VideoLAN/VLC/sdk/lib"
+	#vs
+	"vlc-3.0.9.2/sdk/lib"
   )
-FIND_LIBRARY(LIBVLCCORE_LIBRARY NAMES vlccore libvlccore)
+FIND_LIBRARY(LIBVLCCORE_LIBRARY NAMES libvlccore)
 
 IF (LIBVLC_INCLUDE_DIR AND LIBVLC_LIBRARY AND LIBVLCCORE_LIBRARY)
    SET(LIBVLC_FOUND TRUE)
